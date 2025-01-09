@@ -28,13 +28,13 @@ function setup() {
 }
 
 function draw() {
-    background(255);
     controller.updateAndDraw();
 
 }
 
 function mousePressed() {
     controller.handleMousePressed(mouseX, mouseY);
+    controller.moveBoxes();
 }
 
 function mouseDragged() {
