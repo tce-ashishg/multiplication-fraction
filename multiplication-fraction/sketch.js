@@ -15,8 +15,11 @@ function setup() {
 
     const newFraction = document.getElementById("newFraction");
     newFraction.addEventListener("click", () => {
-        generateNumber(),
-        this.model.pointX = this.model.start
+        generateNumber();
+        model = new FractionModel(numerator1, denominator1, numerator2, denominator2, width, height);
+        view = new FractionView(model);
+        controller = new FractionController(model, view);
+        this.model.pointX = this.model.start;
     });
 
     generateNumber();

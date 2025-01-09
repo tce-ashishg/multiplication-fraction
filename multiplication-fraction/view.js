@@ -13,13 +13,10 @@ class FractionView {
     this.num1 = 0;
     this.num2 = 0;
     this.result = this.model.calculateResult();
-
   }
 
-
-  display() {
+  displayFraction() {
     background(255);
-
 
     fill(0);
     textSize(20);
@@ -46,24 +43,29 @@ class FractionView {
     fill(0);
     textSize(25);
     text('=', 600, 60);
+  }
 
 
-    //draw vertical-lined rect
+  display() {
+
+    //calling vertical-lined rect
 
     this.drawVerticalFraction(this.xV, this.y, this.w, this.h, this.model.numerator1, this.model.denominator1, color(100, 150, 255));
-    this.drawVerticalFraction(this.xV + this.num1, this.y, this.w, this.h, this.model.numerator1, this.model.denominator1, color(100, 150, 255));
+    this.drawVerticalFraction(this.num1, this.y, this.w, this.h, this.model.numerator1, this.model.denominator1, color(100, 150, 255));
 
-    //drawing horizontal-lined rect
+    //calling horizontal-lined rect
     // this.x = 350;
     this.drawHorizontalFraction(this.xH, this.y, this.w, this.h, this.model.numerator2, this.model.denominator2, color(244, 100, 150));
     this.drawHorizontalFraction(this.xH + this.num2, this.y, this.w, this.h, this.model.numerator2, this.model.denominator2, color(244, 100, 150));
 
-    //drawing result rect
+    //calling result rect
     // this.x = 650;
     this.drawResultFraction(650, this.y, this.w, this.h, this.result.numerator, this.result.denominator, color(150, 100, 255));
 
   }
 
+
+  //Drawing the rect box with vertical line
   drawVerticalFraction(x, y, w, h, numerator, denominator, c) {
 
     stroke(0);
@@ -86,6 +88,7 @@ class FractionView {
     text('X', 300, 200);
   }
 
+  //Drawing the rect box with horizontal line
   drawHorizontalFraction(x, y, w, h, numerator, denominator, c) {
     stroke(0);
     noFill();
@@ -111,6 +114,7 @@ class FractionView {
     stroke(0);
     noFill();
     rect(x, y, w, h);
+
     if (this.model.pointX == this.model.end) {
       let sectionWidth = w / this.model.denominator1;
       let sectionHeight = h / this.model.denominator2;
@@ -126,6 +130,7 @@ class FractionView {
           rect(xOffset, yOffset, sectionWidth, sectionHeight);
         }
       }
+
       fill(0);
       stroke(0);
       strokeWeight(1);
@@ -140,13 +145,15 @@ class FractionView {
     }
   }
 
-
-  displayLine() {
+  //Drawing sliderLine
+  displaySliderLine() {
     stroke(10, 10, 255);
     strokeWeight(5);
     line(this.model.start, this.model.pointY, this.model.end, this.model.pointY, 10);
   }
 
+
+  //Drawing moveable point on sliderline
   displayPoint() {
     fill(10, 10, 255);
     stroke(0);
