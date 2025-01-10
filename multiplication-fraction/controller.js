@@ -20,11 +20,11 @@ class FractionController {
             this.model.pointX = floor(constrain(mouseX, this.model.start, this.model.end));
             if (this.model.pointX <= 350) {
                 this.view.num1 = floor(map(this.model.pointX, this.model.start, this.model.end - 300, this.model.start, this.model.end)) - 50;
-                console.log("num1"+this.view.num1);
+                console.log("num1" + this.view.num1);
             }
             else if (this.model.pointX > 350 && this.model.pointX <= 650) {
                 this.view.num2 = floor(this.model.pointX - 350);
-                console.log("num2"+this.view.num2);
+                console.log("num2" + this.view.num2);
 
             }
         }

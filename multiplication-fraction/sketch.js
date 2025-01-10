@@ -23,13 +23,13 @@ function setup() {
     // });
 
     button = createButton('New Fraction');
-    button.position(width - 100, 430); // Position at the end of the slider
+    button.position(width - 40, height + 10); // Position at the end of the slider
     button.addClass('custom-button');
     button.mousePressed(() => {
-      generateNumber();
-      model = new FractionModel(numerator1, denominator1, numerator2, denominator2, width, height);
-      view = new FractionView(model);
-      controller = new FractionController(model, view);
+        generateNumber();
+        model = new FractionModel(numerator1, denominator1, numerator2, denominator2, width, height);
+        view = new FractionView(model);
+        controller = new FractionController(model, view);
     });
 
     generateNumber();
@@ -37,9 +37,6 @@ function setup() {
     model = new FractionModel(numerator1, denominator1, numerator2, denominator2, width, height);
     view = new FractionView(model);
     controller = new FractionController(model, view);
-
-   
-
 }
 
 function draw() {
@@ -54,7 +51,7 @@ function mousePressed() {
 }
 
 function mouseDragged() {
-  //  controller.handleMouseDragged(mouseX);
+    //  controller.handleMouseDragged(mouseX);
     controller.moveBoxes(mouseX);
 
 }
