@@ -15,7 +15,7 @@ class FractionView {
     this.result = this.model.calculateResult();
   }
 
-  displayFraction() {
+  displayFraction(){
     background(255);
 
     fill(0);
@@ -51,7 +51,7 @@ class FractionView {
     //calling vertical-lined rect
 
     this.drawVerticalFraction(this.xV, this.y, this.w, this.h, this.model.numerator1, this.model.denominator1, color(100, 150, 255));
-    this.drawVerticalFraction(this.num1, this.y, this.w, this.h, this.model.numerator1, this.model.denominator1, color(100, 150, 255));
+    this.drawVerticalFraction(this.xV + this.num1, this.y, this.w, this.h, this.model.numerator1, this.model.denominator1, color(100, 150, 255));
 
     //calling horizontal-lined rect
     // this.x = 350;
@@ -145,7 +145,7 @@ class FractionView {
     }
   }
 
-  //Drawing sliderLine
+//Drawing sliderLine
   displaySliderLine() {
     stroke(10, 10, 255);
     strokeWeight(5);

@@ -37,11 +37,12 @@ function draw() {
 
 function mousePressed() {
     controller.handleMousePressed(mouseX, mouseY);
-    controller.moveBoxes();
 }
 
 function mouseDragged() {
     controller.handleMouseDragged(mouseX);
+    controller.moveBoxes();
+
 }
 
 function mouseReleased() {
