@@ -13,13 +13,23 @@ let numerator2;
 function setup() {
     createCanvas(900, 500);
 
-    const newFraction = document.getElementById("newFraction");
-    newFraction.addEventListener("click", () => {
-        generateNumber();
-        model = new FractionModel(numerator1, denominator1, numerator2, denominator2, width, height);
-        view = new FractionView(model);
-        controller = new FractionController(model, view);
-        this.model.pointX = this.model.start;
+    // const newFraction = document.getElementById("newFraction");
+    // newFraction.addEventListener("click", () => {
+    //     generateNumber();
+    //     model = new FractionModel(numerator1, denominator1, numerator2, denominator2, width, height);
+    //     view = new FractionView(model);
+    //     controller = new FractionController(model, view);
+    //     this.model.pointX = this.model.start;
+    // });
+
+    button = createButton('New Fraction');
+    button.position(width - 100, 430); // Position at the end of the slider
+    button.addClass('custom-button');
+    button.mousePressed(() => {
+      generateNumber();
+      model = new FractionModel(numerator1, denominator1, numerator2, denominator2, width, height);
+      view = new FractionView(model);
+      controller = new FractionController(model, view);
     });
 
     generateNumber();
@@ -28,11 +38,15 @@ function setup() {
     view = new FractionView(model);
     controller = new FractionController(model, view);
 
+   
+
 }
 
 function draw() {
     controller.updateAndDraw();
-
+    textSize(16);
+    fill(0);
+    text('Slide to explore', model.start + 50, model.pointY - 50);
 }
 
 function mousePressed() {
@@ -40,8 +54,8 @@ function mousePressed() {
 }
 
 function mouseDragged() {
-    controller.handleMouseDragged(mouseX);
-    controller.moveBoxes();
+  //  controller.handleMouseDragged(mouseX);
+    controller.moveBoxes(mouseX);
 
 }
 
